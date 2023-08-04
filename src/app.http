@@ -1,0 +1,20 @@
+@hostingURL= http://localhost:3000/
+
+
+### Recuperar todos los vehiculos
+GET {{hostingURL}}vehicle
+
+### Recuperar vehiculo por id
+GET http://localhost:3000/:plate
+
+### Recuperar todos los usuarios
+GET http://localhost:3000/user
+
+### Recuperar todos los usuarios
+GET http://localhost:3000/user:id
+
+### Recuperar todos las rentas
+GET http://localhost:3000/rental
+
+### Recuperar historial de rentas de un usuario
+GET http://localhost:3000/rental/:userId
