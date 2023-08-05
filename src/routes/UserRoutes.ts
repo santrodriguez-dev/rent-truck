@@ -1,7 +1,10 @@
 import express from 'express'
+import { createUser, getAllUsers, getUserById } from '../controllers/UserController'
+import { validateCreateUser } from '../middlewares'
 
 export const userRouter = express.Router()
 
 userRouter
-  .get('/', (req, res) => res.json({ test: 'Hola test 2222!' }))
-  .get('/:id', (req, res) => res.json({ test: 'Hola test 2222!' }))
+  .get('/', getAllUsers)
+  .get('/:id', getUserById)
+  .post('/', validateCreateUser, createUser)

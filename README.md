@@ -62,6 +62,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * Nodejs
 * Express framework
 * Prisma ORM
+* Valibot
 
 <!-- ## Uso
 

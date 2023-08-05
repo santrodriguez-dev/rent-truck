@@ -4,7 +4,7 @@
   "description": "Aplicación nodejs para reservar transporte de mudanzas",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev src/index.ts",
+    "dev": "ts-node-dev src",
     "test": "",
     "lint": "eslint src/*",
     "lint:fix": "eslint src/* --fix"

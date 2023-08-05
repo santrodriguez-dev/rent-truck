@@ -10,9 +10,10 @@ const ACCEPTED_ORIGINS = [
   'http://localhost:8081',
   'http://localhost:8082'
 ]
-
+// disable x-powered-by header
 app.disable('x-powered-by')
 
+// Middlewares
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) { callback(null, true); return }
@@ -26,9 +27,10 @@ app.use(express.json())
 // Routes
 app
   .use('/api/vehicle', vehicleRouter)
-  .use('api/user', userRouter)
-  .use('api/rental', rentalRouter)
+  .use('/api/user', userRouter)
+  .use('/api/rental', rentalRouter)
 
+// Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server listening on port ${PORT}`)
 })

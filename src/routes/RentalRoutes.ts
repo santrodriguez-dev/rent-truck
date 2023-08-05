@@ -1,7 +1,8 @@
 import express from 'express'
+import { getAllRentals, getRentalsByUserId } from '../controllers/RenatalController'
 
 export const rentalRouter = express.Router()
 
 rentalRouter
-  .get('/', (req, res) => res.json({ test: 'Hola test 2222!' }))
-  .get('/:userId', (req, res) => res.json({ test: 'Hola test 2222!' }))
+  .get('/', getAllRentals)
+  .get('/:userId', getRentalsByUserId)

@@ -18,8 +18,10 @@ model User {
   phoneNumber String
   email       String    @unique
   role        String    @default("user") //admin, user, driver
+  city        String
   Vehicle     Vehicle[]
   Rental      Rental[]
+  createdAt   DateTime  @default(now())
 
   @@map("user")
 }
@@ -30,13 +32,16 @@ model Vehicle {
   model        String?
   year         DateTime?
   plate        String    @unique
-  size         String
+  size         String    @default("medium") // small, medium, large
   location     String?
   pricePerHour Int
   color        String?
+  city         String
+  available    Boolean
   Rental       Rental[]
   userOwner    User      @relation(fields: [userOwnerId], references: [id])
   userOwnerId  Int
+  createdAt    DateTime  @default(now())
 
   @@map("vehicle")
 }
@@ -50,6 +55,8 @@ model Rental {
   user      User     @relation(fields: [userId], references: [id])
   vehicleId Int
   userId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("rental")
 }

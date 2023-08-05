@@ -1,28 +1,76 @@
 @hostingURL= http://localhost:3000/api/
 
-
 ### Recuperar todos los vehiculos
 GET {{hostingURL}}vehicle
 
 ### Recuperar vehiculo por id
-GET {{hostingURL}}vehicle/CPS514
+GET {{hostingURL}}vehicle/CPS-519
+
+###Crear un vehiculo
+POST {{hostingURL}}vehicle
+content-type: application/json
+
+{
+    "brand": "Renault",
+    "model": "megane",
+    "plate": "CPS-519",
+    "userOwnerId": 1,
+    "color": "Gris",
+    "size": "small",
+    "year": "2007-08-05T03:19:08.000Z",
+    "available": true,
+    "location": "Cra 45 # 6-98",
+    "pricePerHour": 50000,
+    "city": "Bogota"
+  }
+
+###Actualizar un vehiculo por id
+PUT {{hostingURL}}vehicle/1
+content-type: application/json
+
+{
+    "brand": "Renault",
+    "model": "megane 2",
+    "plate": "ABC-111",
+    "userOwnerId": 1,
+    "color": "Gris",
+    "size": "small",
+    "year": "2007-08-05T03:19:08.000Z",
+    "available": true,
+    "location": "Cra 45 # 6-98",
+    "pricePerHour": 50000,
+    "city": "Bogota"
+  }
 
 ### Recuperar todos los usuarios
 GET {{hostingURL}}user
 
-### Recuperar todos los usuarios
-GET {{hostingURL}}user/:id
+### Recuperar usuario por id
+GET {{hostingURL}}user/1
+
+### Crear un usuario
+POST {{hostingURL}}user
+content-type: application/json
+
+{
+    "firstName": "Sebastian",
+    "lastName": "Galindo",
+    "email": "sebas@example1.com",
+    "phoneNumber": "1234567890",
+    "address": "Cra 78 # 12 - 34",
+    "city": "Bogota",
+    "role": "admin"
+}
 
 ### Recuperar todos las rentas
 GET {{hostingURL}}rental
 
 ### Recuperar historial de rentas de un usuario
-GET {{hostingURL}}rental/:userId
+GET {{hostingURL}}rental/1
 
 ### Alquilar un vehiculo
-POST https://example.com/comments HTTP/1.1
+POST https://example.com/comments
 content-type: application/json
-
 {
     "name": "sample",
     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
