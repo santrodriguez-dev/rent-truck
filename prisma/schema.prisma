@@ -25,16 +25,17 @@ model User {
 }
 
 model Vehicle {
-  id           Int      @id @default(autoincrement())
+  id           Int       @id @default(autoincrement())
   brand        String
   model        String?
-  year         BigInt?
+  year         DateTime?
+  plate        String    @unique
   size         String
   location     String?
-  pricePerHour String
+  pricePerHour Int
   color        String?
   Rental       Rental[]
-  userOwner    User     @relation(fields: [userOwnerId], references: [id])
+  userOwner    User      @relation(fields: [userOwnerId], references: [id])
   userOwnerId  Int
 
   @@map("vehicle")
@@ -44,7 +45,7 @@ model Rental {
   id        Int      @id @default(autoincrement())
   startDate DateTime
   numHours  Int
-  totalCost BigInt
+  totalCost Int
   vehicle   Vehicle  @relation(fields: [vehicleId], references: [id])
   user      User     @relation(fields: [userId], references: [id])
   vehicleId Int

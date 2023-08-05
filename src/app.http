@@ -1,20 +1,29 @@
-@hostingURL= http://localhost:3000/
+@hostingURL= http://localhost:3000/api/
 
 
 ### Recuperar todos los vehiculos
 GET {{hostingURL}}vehicle
 
 ### Recuperar vehiculo por id
-GET http://localhost:3000/:plate
+GET {{hostingURL}}vehicle/CPS514
 
 ### Recuperar todos los usuarios
-GET http://localhost:3000/user
+GET {{hostingURL}}user
 
 ### Recuperar todos los usuarios
-GET http://localhost:3000/user:id
+GET {{hostingURL}}user/:id
 
 ### Recuperar todos las rentas
-GET http://localhost:3000/rental
+GET {{hostingURL}}rental
 
 ### Recuperar historial de rentas de un usuario
-GET http://localhost:3000/rental/:userId
+GET {{hostingURL}}rental/:userId
+
+### Alquilar un vehiculo
+POST https://example.com/comments HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
