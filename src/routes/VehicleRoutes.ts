@@ -9,3 +9,4 @@ vehicleRouter
   .get('/:plate', getVehicleByPlate)
   .post('/', validateCreateVehicle, createVehicle)
   .put('/:id', validateUpdateVehicle, updateVehicle)
+  .get('rentals/:id', () => { })// Metodo que obtiene todas las rentas de un vehiculo

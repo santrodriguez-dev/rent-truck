@@ -1,7 +1,8 @@
 import { EmailAlreadyExistsError } from '../errors/ErrorHandlers'
 import userService from '../services/UserService'
+import { type Request, type Response } from 'express'
 
-export const getAllUsers = async (req: any, res: any) => {
+export const getAllUsers = async (req: Request, res: Response) => {
   try {
     const users = await userService.getAllUsers()
     res.json(users)

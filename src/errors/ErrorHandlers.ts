@@ -17,3 +17,10 @@ export class ValidationError extends Error {
     this.name = 'ValidationError'
   }
 }
+
+export class VehicleInUseError extends Error {
+  constructor () {
+    super('Vehicule in use in that schedule!')
+    this.name = 'VehicleInUseError'
+  }
+}

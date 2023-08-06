@@ -50,7 +50,6 @@ model Rental {
   id        Int      @id @default(autoincrement())
   startDate DateTime
   numHours  Int
-  totalCost Int
   vehicle   Vehicle  @relation(fields: [vehicleId], references: [id])
   user      User     @relation(fields: [userId], references: [id])
   vehicleId Int

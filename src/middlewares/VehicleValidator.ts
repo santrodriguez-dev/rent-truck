@@ -10,7 +10,9 @@ export const validateCreateVehicle = async (req: Request, res: Response, next: N
       plate: string('Plate must be a string.'),
       size: optional(enumType(['small', 'medium', 'large'], 'Size must be one of the following: small, medium, large')),
       location: optional(string('Location must be a string.')),
-      pricePerHour: number('Price per hour must be a number.', [minValue(10000, 'Price per hour must be at least 10000.'), maxValue(200000, 'Price per hour must be at most 200000.')]),
+      pricePerHour: number('Price per hour must be a number.', [
+        minValue(10000, 'Price per hour must be at least 10000.'),
+        maxValue(200000, 'Price per hour must be at most 200000.')]),
       color: optional(string('Color must be a string.')),
       city: string('City must be a string.'),
       available: boolean('Available must be a boolean.'),
@@ -43,7 +45,9 @@ export const validateUpdateVehicle = async (req: Request, res: Response, next: N
       plate: optional(string('Plate must be a string.')),
       size: optional(enumType(['small', 'medium', 'large'], 'Size must be one of the following: small, medium, large')),
       location: optional(string('Location must be a string.')),
-      pricePerHour: optional(number('Price per hour must be a number.', [minValue(10000, 'Price per hour must be at least 10000.'), maxValue(200000, 'Price per hour must be at most 200000.')])),
+      pricePerHour: optional(number('Price per hour must be a number.', [
+        minValue(10000, 'Price per hour must be at least 10000.'),
+        maxValue(200000, 'Price per hour must be at most 200000.')])),
       color: optional(string('Color must be a string.')),
       city: optional(string('City must be a string.')),
       available: optional(boolean('Available must be a boolean.')),

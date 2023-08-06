@@ -1,4 +1,4 @@
-import { PrismaErrorCode } from '../constants/PrismaErrors'
+import { PrismaErrorCode } from '../types/PrismaErrors'
 import { vehicle } from '../database'
 import { VehicleAlreadyExistsError } from '../errors/ErrorHandlers'
 

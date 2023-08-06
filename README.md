@@ -42,18 +42,19 @@ Below is an example of how you can instruct your audience on installing and sett
    npx prisma migrate dev --name init
    ```
 
-## Roadmap
+## Requerimientos
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
+- [x] Agregar, actualizar usuarios
+   - [x] Evitar almacenar dos usuarios con el mismo email
+- [x] Agregar, actualizar vehiculos
+   - [x] Evitar almacenar dos vehiculos con la misma placa
+- [x] Rentar un vehiculo
+    - [x] Maximo de horas permitidas debe ser 8h
+    - [x] Minimo de horas permitidas debe ser 2h
+    - [x] No es posible almacenar una renta con una fecha expirada. ej: 2018-05-03 (fecha pasada)
+    - [x] Validar que solo sea posible rentar un vehiculo en las franjas horarias disponibles. horarios permitidos (min 4am, max 4pm)
+    - [ ] Solo es posible arrendar un vehiculo en dias laborales (Lunes-Viernes)
+    - [ ] Validar que un vehiculo no se pueda rentar mas de una vez en la misma franja horaria
 
 ## Built With
 
@@ -63,13 +64,6 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * Express framework
 * Prisma ORM
 * Valibot
-
-<!-- ## Uso
-
-```javascript
-import foobar
-
-``` -->
 
 ## Contributing
 
@@ -85,21 +79,6 @@ Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. S
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Santiago Rodriguz - srodriguezm95@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+Project Link: [https://github.com/santrodriguez-dev/rent-truck](https://github.com/santrodriguez-dev/rent-truck)
