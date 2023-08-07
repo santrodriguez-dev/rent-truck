@@ -11,6 +11,7 @@ import {
   maxValue,
   custom
 } from 'valibot'
+import { type RentalI } from '../types'
 
 const dateInFuture = (isoDate: string) => {
   const startDate = new Date(isoDate)
@@ -46,8 +47,13 @@ export const validateRentVehicle = async (req: Request, res: Response, next: Nex
       })
     )
 
-  const rentToAdd = req.body
+  const rentToAdd = (req.body as RentalI)
   const validatorResult = await safeParseAsync(RentVehicleSchema, rentToAdd, { abortEarly: true })
+
+  // get end date from start date and numHours
+  const { startDate } = rentToAdd
+  const endDate = new Date(startDate).getTime() + (Number(rentToAdd.numHours) * 60 * 60 * 1000)
+  req.body.endDate = new Date(endDate).toISOString()
 
   if (!validatorResult.success) {
     console.error(validatorResult.error.issues)

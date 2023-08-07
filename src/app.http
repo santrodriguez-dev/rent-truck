@@ -30,8 +30,8 @@ content-type: application/json
 
 {
   "brand": "Renault",
-  "model": "megane 2",
-  "plate": "ABC-111",
+  "model": "megane",
+  "plate": "ABC-222",
   "userOwnerId": 1,
   "color": "Gris",
   "size": "small",
@@ -53,9 +53,9 @@ POST {{hostingURL}}user
 content-type: application/json
 
 {
-  "firstName": "Cristian",
-  "lastName": "Perez",
-  "email": "cristian4@example1.com",
+  "firstName": "Santiago",
+  "lastName": "Rodriguez",
+  "email": "santi@example1.com",
   "phoneNumber": "0987654321",
   "address": "Cra 78 # 12 - 34",
   "city": "Bogota",
@@ -66,18 +66,18 @@ content-type: application/json
 GET {{hostingURL}}rental
 
 ### Recuperar historial de rentas de un usuario
-GET {{hostingURL}}rental/2
+GET {{hostingURL}}rental/1
 
 ### Recuperar historial de rentas de un vehiculo
-GET {{hostingURL}}rental/vehicle/1
+GET {{hostingURL}}rental/vehicle/2
 
 ### Alquilar un vehiculo
 POST {{hostingURL}}rental
 content-type: application/json
 
 {
-  "startDate": "2023-08-11T10:00:00.000Z",
-  "numHours": 2,
-  "vehicleId": 1,
+  "startDate": "2023-08-14T14:00:00.000Z",
+  "numHours": 5,
+  "vehicleId": 2,
   "userId": 1
 }

@@ -20,7 +20,7 @@ export class ValidationError extends Error {
 
 export class VehicleInUseError extends Error {
   constructor () {
-    super('Vehicule in use in that schedule!')
+    super('Vehicule will used in that schedule!')
     this.name = 'VehicleInUseError'
   }
 }

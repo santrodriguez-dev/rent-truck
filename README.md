@@ -53,8 +53,16 @@ Below is an example of how you can instruct your audience on installing and sett
     - [x] Minimo de horas permitidas debe ser 2h
     - [x] No es posible almacenar una renta con una fecha expirada. ej: 2018-05-03 (fecha pasada)
     - [x] Validar que solo sea posible rentar un vehiculo en las franjas horarias disponibles. horarios permitidos (min 4am, max 4pm)
-    - [ ] Solo es posible arrendar un vehiculo en dias laborales (Lunes-Viernes)
-    - [ ] Validar que un vehiculo no se pueda rentar mas de una vez en la misma franja horaria
+    - [x] Solo es posible arrendar un vehiculo en dias laborales (Lunes-Viernes)
+    - [x] Validar que un vehiculo no se pueda rentar mas de una vez en la misma franja horaria
+
+## Tests
+- [] Un usuario no puede ser almacenado si el email ya existe en la base de datos
+- [] Un vehiculo no puede ser almacenado si la placa ya existe en la base de datos
+- [] Un vehiculo no puede ser rentado si es un dia festivo
+- [] Un vehiculo no puede ser rentado despues de las 4pm
+- [] Un vehiculo no puede ser rentado si el horario se cruza con un servicio ya asignado
+- [] Un vehiculo no puede ser rentado en una fecha pasada
 
 ## Built With
 
