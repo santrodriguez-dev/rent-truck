@@ -57,8 +57,8 @@ Below is an example of how you can instruct your audience on installing and sett
     - [x] Validar que un vehiculo no se pueda rentar mas de una vez en la misma franja horaria
 
 ## Tests
-- [] Un usuario no puede ser almacenado si el email ya existe en la base de datos
-- [] Un vehiculo no puede ser almacenado si la placa ya existe en la base de datos
+- [x] Un usuario no puede ser almacenado si el email ya existe en la base de datos
+- [x] Un vehiculo no puede ser almacenado si la placa ya existe en la base de datos
 - [] Un vehiculo no puede ser rentado si es un dia festivo
 - [] Un vehiculo no puede ser rentado despues de las 4pm
 - [] Un vehiculo no puede ser rentado si el horario se cruza con un servicio ya asignado

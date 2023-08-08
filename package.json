@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev src",
-    "test": "",
+    "test": "node --test src/tests",
+    "test:watch": "node --test --watch src/tests",
     "lint": "eslint src/*",
-    "lint:fix": "eslint src/* --fix"
+    "lint:fix": "eslint src/* --fix",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [
     "trasteos",

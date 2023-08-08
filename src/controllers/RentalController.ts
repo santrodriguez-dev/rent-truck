@@ -7,7 +7,7 @@ export const getAllRentals = async (req: Request, res: Response) => {
     const rentals = await rentalService.getAllRentals()
     res.json(rentals)
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.status(500).json('Error reading rentals')
   }
 }
@@ -18,7 +18,7 @@ export const getRentalsByUserId = async (req: Request, res: Response) => {
     const rentals = await rentalService.getRentalsByUserId(userId)
     res.json(rentals)
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.status(500).json('Error reading rentals')
   }
 }
@@ -29,7 +29,7 @@ export const getRentalsByVehicleId = async (req: Request, res: Response) => {
     const rentals = await rentalService.getRentalsByVehicleId(vehicleId)
     res.json(rentals)
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.status(500).json('Error reading rentals')
   }
 }
@@ -41,7 +41,7 @@ export const rentVehicle = async (req: Request, res: Response) => {
     res.status(200).json(vehicleRented)
   } catch (error) {
     if (error instanceof VehicleInUseError) return res.status(400).json(error.message)
-    console.log(error)
+    console.error(error)
     res.status(500).json('Error renting vehicle')
   }
 }

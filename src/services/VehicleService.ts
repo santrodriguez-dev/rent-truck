@@ -43,7 +43,7 @@ const updateVehicle = async (vehicleId: string, vehicleData: any) => {
     },
     data: vehicleData
   }).catch((error) => {
-    console.log(error)
+    console.error(error)
     if (error.code === PrismaErrorCode.P2002) throw new VehicleAlreadyExistsError()
 
     throw new Error(error)
