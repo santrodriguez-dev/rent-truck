@@ -30,10 +30,9 @@ export const createVehicle = async (req: Request, res: Response) => {
     const vehicleCreated = await vehicleService.createVehicle(vehicleData)
     res.status(200).json(vehicleCreated)
   } catch (error) {
+    console.error(error)
     if (error instanceof VehicleAlreadyExistsError) return res.status(400).json(error.message)
     if (error instanceof PrismaClientValidationError) { console.log('PrismaClientValidationError', error.message) }
-
-    console.log(error)
 
     res.status(500).json('Error creating vehicle')
   }

@@ -1,5 +1,25 @@
 @hostingURL= http://localhost:3000/api/
 
+### Crear un usuario
+POST {{hostingURL}}user
+content-type: application/json
+
+{
+  "firstName": "Santiago",
+  "lastName": "Rodriguez",
+  "email": "santi2@example1.com",
+  "phoneNumber": "0987654321",
+  "address": "Cra 78 # 12 - 34",
+  "city": "Bogota",
+  "role": "admin"
+}
+
+### Recuperar todos los usuarios
+GET {{hostingURL}}user
+
+### Recuperar usuario por id
+GET {{hostingURL}}user/1
+
 ### Recuperar todos los vehiculos
 GET {{hostingURL}}vehicle
 
@@ -42,26 +62,6 @@ content-type: application/json
   "city": "Bogota"
 }
 
-### Recuperar todos los usuarios
-GET {{hostingURL}}user
-
-### Recuperar usuario por id
-GET {{hostingURL}}user/1
-
-### Crear un usuario
-POST {{hostingURL}}user
-content-type: application/json
-
-{
-  "firstName": "Santiago",
-  "lastName": "Rodriguez",
-  "email": "santi@example1.com",
-  "phoneNumber": "0987654321",
-  "address": "Cra 78 # 12 - 34",
-  "city": "Bogota",
-  "role": "admin"
-}
-
 ### Recuperar todos las rentas
 GET {{hostingURL}}rental
 
@@ -76,8 +76,8 @@ POST {{hostingURL}}rental
 content-type: application/json
 
 {
-  "startDate": "2023-08-27T14:00:00.000Z",
+  "startDate": "2023-08-15T19:00:00.000Z",
   "numHours": 5,
-  "vehicleId": 2,
+  "vehicleId": 1,
   "userId": 1
 }

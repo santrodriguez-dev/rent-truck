@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
-import assert from 'node:assert'
 import test, { describe } from 'node:test'
-import vehicleService from '../services/VehicleService'
+import assert from 'node:assert'
+
+const URL_HOST = 'http://localhost:3000/api/vehicle'
 
 describe('Vehicle schema tests', () => {
   test('Un vehiculo no puede ser almacenado si la placa ya existe en la base de datos', async () => {
-    const response = await vehicleService.createVehicle({
+    const vehicleToCreate = {
       brand: 'Renault',
       model: 'megane',
       plate: 'CPS-519',
@@ -17,9 +17,18 @@ describe('Vehicle schema tests', () => {
       location: 'Cra 45 # 6-98',
       pricePerHour: 50000,
       city: 'Bogota'
+    }
+
+    const response = await fetch(URL_HOST, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(vehicleToCreate)
     })
 
-    assert.strictEqual(response.message, 'Vehicle already exists!')
-    assert.strictEqual(response instanceof Error, true)
+    const json = await response.json()
+    assert.strictEqual(response.status, 400)
+    assert.strictEqual(json, 'Vehicle already exists!')
   })
 })

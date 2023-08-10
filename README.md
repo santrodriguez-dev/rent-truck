@@ -41,6 +41,10 @@ Below is an example of how you can instruct your audience on installing and sett
    ```sh
    npx prisma migrate dev --name init
    ```
+1. Recreate migration:
+   ```sh
+   npx prisma migrate dev
+   ```
 
 ## Requerimientos
 

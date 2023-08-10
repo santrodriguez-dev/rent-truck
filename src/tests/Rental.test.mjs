@@ -1,38 +1,94 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
 import assert from 'node:assert'
 import test, { describe } from 'node:test'
+
 const HOST_URL = 'http://localhost:3000/api/rental'
 
 describe('Rental schema tests', () => {
   test('Un vehiculo no puede ser rentado si es un dia festivo', async () => {
-    const tryFetch = async () => {
-      const response = await fetch(HOST_URL, {
-        method: 'POST',
-        body: {
-          startDate: '2023-08-27T14:00:00.000Z',
-          numHours: 5,
-          vehicleId: 2,
-          userId: 1
-        }
-      })
-      return await response.json()
+    const rentalTocreate = {
+      startDate: '2030-12-22T19:00:00.000Z',
+      numHours: 2,
+      vehicleId: 1,
+      userId: 1
     }
-    assert.throws(tryFetch, {
-      code: 'ERR_BAD_REQUEST',
-      name: 'TypeError',
-      message: 'Invalid date'
+
+    const response = await fetch(HOST_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(rentalTocreate)
     })
+
+    const json = await response.json()
+
+    assert.strictEqual(response.status, 400)
+    assert.strictEqual(json.type, 'ValidationError')
   })
 
   test('Un vehiculo no puede ser rentado despues de las 4pm', async () => {
-    assert.strictEqual(1, 1)
+    const rentalTocreate = {
+      startDate: '2030-12-22T22:00:00.000Z',
+      numHours: 2,
+      vehicleId: 1,
+      userId: 1
+    }
+
+    const response = await fetch(HOST_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(rentalTocreate)
+    })
+
+    const json = await response.json()
+
+    assert.strictEqual(response.status, 400)
+    assert.strictEqual(json.type, 'ValidationError')
   })
 
   test('Un vehiculo no puede ser rentado si el horario se cruza con un servicio ya asignado', async () => {
-    assert.strictEqual(1, 1)
+    const rentalTocreate = {
+      startDate: '2023-08-15T10:00:00.000Z',
+      numHours: 2,
+      vehicleId: 1,
+      userId: 1
+    }
+
+    const response = await fetch(HOST_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(rentalTocreate)
+    })
+
+    const json = await response.json()
+
+    assert.strictEqual(response.status, 400)
+    assert.strictEqual(json, 'Vehicle will used in that schedule!')
   })
 
   test('Un vehiculo no puede ser rentado en una fecha pasada', async () => {
-    assert.strictEqual(1, 1)
+    const rentalTocreate = {
+      startDate: '2000-08-15T10:00:00.000Z',
+      numHours: 2,
+      vehicleId: 1,
+      userId: 1
+    }
+
+    const response = await fetch(HOST_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(rentalTocreate)
+    })
+
+    const json = await response.json()
+
+    assert.strictEqual(response.status, 400)
+    assert.strictEqual(json.type, 'ValidationError')
   })
 })

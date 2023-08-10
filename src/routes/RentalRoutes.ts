@@ -4,7 +4,6 @@ import { validateRentVehicle } from '../middlewares'
 
 export const rentalRouter = express.Router()
 
-// TODO:
 rentalRouter
   .get('/', getAllRentals)
   .get('/:userId', getRentalsByUserId)

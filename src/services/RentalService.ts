@@ -50,10 +50,8 @@ const getRentalsByVehicleIdAndRangeDate = async (vehicleId: number, startDate: s
 const rentVehicle = async (rentData: RentalI) => {
   // Validar que no se cruce la fecha de alquiler
   const { startDate: startDateISO, endDate: endDateISO, vehicleId } = rentData
-
   const rentalsVehicle = await getRentalsByVehicleIdAndRangeDate(Number(vehicleId), startDateISO, endDateISO)
-  console.log({ rentalsVehicle })
-  // Todo: obtener rentas de un horario especifico
+
   if (rentalsVehicle.length > 0) throw new VehicleInUseError()
 
   return await rental.create({

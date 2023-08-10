@@ -1,5 +1,3 @@
-// Comunication with database
-
 import { user } from '../database'
 import { PrismaErrorCode } from '../types/PrismaErrors'
 import { EmailAlreadyExistsError } from '../errors/ErrorHandlers'

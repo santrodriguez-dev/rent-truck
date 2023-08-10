@@ -5,6 +5,8 @@ import { vehicleRouter, rentalRouter, userRouter } from './routes'
 const app = express()
 const PORT = process.env.PORT ?? 3000
 
+// console.log('env vars', process.env)
+
 const ACCEPTED_ORIGINS = [
   'http://localhost:8080',
   'http://localhost:8081',
