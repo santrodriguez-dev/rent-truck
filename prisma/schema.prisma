@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id          Int       @id @default(autoincrement())
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
   firstName   String
   lastName    String?
   address     String?
@@ -24,7 +24,7 @@ model User {
 }
 
 model Vehicle {
-  id           Int       @id @default(autoincrement())
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
   brand        String
   model        String?
   year         DateTime?
@@ -35,25 +35,25 @@ model Vehicle {
   color        String?
   city         String
   available    Boolean
-  userOwnerId  Int
   createdAt    DateTime  @default(now())
+  Owner        User?     @relation(fields: [ownerId], references: [id])
+  ownerId      String?   @db.ObjectId
   Rental       Rental[]
-  userOwner    User      @relation(fields: [userOwnerId], references: [id])
 
   @@map("vehicle")
 }
 
 model Rental {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   startDate DateTime
   endDate   DateTime
   numHours  Int
-  vehicleId Int
-  userId    Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  user      User     @relation(fields: [userId], references: [id])
-  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id])
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?  @db.ObjectId
+  Vehicle   Vehicle? @relation(fields: [vehicleId], references: [id])
+  vehicleId String?  @db.ObjectId
 
   @@map("rental")
 }

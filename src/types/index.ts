@@ -1,10 +1,10 @@
 export interface RentalI {
-  id?: number
+  id?: string
   startDate: string
   endDate: string
   numHours: number
-  vehicleId: number
-  userId: number
+  vehicleId: string
+  userId: string
   createdAt?: Date
   updatedAt?: Date
 }

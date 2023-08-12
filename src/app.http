@@ -7,7 +7,7 @@ content-type: application/json
 {
   "firstName": "Santiago",
   "lastName": "Rodriguez",
-  "email": "santi2@example1.com",
+  "email": "otro-email@example1.com",
   "phoneNumber": "0987654321",
   "address": "Cra 78 # 12 - 34",
   "city": "Bogota",
@@ -33,8 +33,8 @@ content-type: application/json
 {
   "brand": "Renault",
   "model": "megane",
-  "plate": "CPS-519",
-  "userOwnerId": 1,
+  "plate": "CPS-AAA",
+  "ownerId": "64d72215793ccd1d6bc84018",
   "color": "Gris",
   "size": "small",
   "year": "2007-08-05T03:19:08.000Z",
@@ -76,8 +76,8 @@ POST {{hostingURL}}rental
 content-type: application/json
 
 {
-  "startDate": "2023-08-15T19:00:00.000Z",
+  "startDate": "2023-08-16T19:00:00.000Z",
   "numHours": 5,
-  "vehicleId": 1,
-  "userId": 1
+  "vehicleId": "64d723518d9d5b8ce0f85692",
+  "userId": "64d72215793ccd1d6bc84018"
 }

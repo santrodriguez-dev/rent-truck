@@ -24,7 +24,7 @@ export const getRentalsByUserId = async (req: Request, res: Response) => {
 }
 
 export const getRentalsByVehicleId = async (req: Request, res: Response) => {
-  const vehicleId = Number(req.params.vehicleId)
+  const vehicleId = req.params.vehicleId
   try {
     const rentals = await rentalService.getRentalsByVehicleId(vehicleId)
     res.json(rentals)

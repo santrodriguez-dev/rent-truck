@@ -9,26 +9,26 @@ const getAllRentals = async () => {
 const getRentalsByUserId = async (userId: string) => {
   const rentals = await rental.findMany({
     where: {
-      userId: Number(userId)
+      userId
     }
   })
   return rentals
 }
 
-const getRentalsByVehicleId = async (vehicleId: number) => {
+const getRentalsByVehicleId = async (vehicleId: string) => {
   const rentals = await rental.findMany({
     where: {
-      vehicleId: Number(vehicleId)
+      vehicleId
     }
   })
   return rentals
 }
 
-const getRentalsByVehicleIdAndRangeDate = async (vehicleId: number, startDate: string, endDate: string) => {
+const getRentalsByVehicleIdAndRangeDate = async (vehicleId: string, startDate: string, endDate: string) => {
   console.log({ startDate, endDate })
   const rentals = await rental.findMany({
     where: {
-      vehicleId: Number(vehicleId),
+      vehicleId,
       OR: [
         {
           startDate: { lte: startDate },
@@ -50,7 +50,7 @@ const getRentalsByVehicleIdAndRangeDate = async (vehicleId: number, startDate: s
 const rentVehicle = async (rentData: RentalI) => {
   // Validar que no se cruce la fecha de alquiler
   const { startDate: startDateISO, endDate: endDateISO, vehicleId } = rentData
-  const rentalsVehicle = await getRentalsByVehicleIdAndRangeDate(Number(vehicleId), startDateISO, endDateISO)
+  const rentalsVehicle = await getRentalsByVehicleIdAndRangeDate(vehicleId, startDateISO, endDateISO)
 
   if (rentalsVehicle.length > 0) throw new VehicleInUseError()
 

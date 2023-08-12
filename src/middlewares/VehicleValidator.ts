@@ -1,5 +1,5 @@
 import { type NextFunction, type Request, type Response } from 'express'
-import { object, string, enumType, optional, safeParseAsync, number, boolean, minValue, maxValue, isoTimestamp } from 'valibot'
+import { object, string, enumType, optional, safeParseAsync, number, boolean, minValue, maxValue, isoTimestamp, nonOptional } from 'valibot'
 
 export const validateCreateVehicle = async (req: Request, res: Response, next: NextFunction) => {
   const CreateUserSchema =
@@ -16,7 +16,7 @@ export const validateCreateVehicle = async (req: Request, res: Response, next: N
       color: optional(string('Color must be a string.')),
       city: string('City must be a string.'),
       available: boolean('Available must be a boolean.'),
-      userOwnerId: number('User owner id must be a number.')
+      ownerId: nonOptional(string('User owner id must be a string.'), 'User owner is required.')
     })
 
   const vehicleToAdd = req.body

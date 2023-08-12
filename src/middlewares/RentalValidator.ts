@@ -42,8 +42,8 @@ export const validateRentVehicle = async (req: Request, res: Response, next: Nex
           minValue(2, 'Num hours must be at least 2.'),
           maxValue(8, 'Num hours must be at most 8.')
         ]),
-        vehicleId: number('VehicleId must be a number.'),
-        userId: number('UserId must be a number.')
+        vehicleId: string('VehicleId must be a string.'),
+        userId: string('UserId must be a string.')
       })
     )
 

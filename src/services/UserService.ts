@@ -6,10 +6,10 @@ const getAllUsers = async () => {
   const users = await user.findMany()
   return users
 }
-const getUserById = async (userId: string) => {
+const getUserById = async (id: string) => {
   const userFound = await user.findUnique({
     where: {
-      id: Number(userId)
+      id
     },
     select: {
       id: true,

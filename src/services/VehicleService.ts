@@ -15,7 +15,7 @@ const getVehicleByPlate = async (plate: string) => {
       brand: true,
       model: true,
       plate: true,
-      userOwner: {
+      Owner: {
         select: {
           id: true,
           firstName: true
@@ -39,7 +39,7 @@ const createVehicle = async (vehicleData: any) => {
 const updateVehicle = async (vehicleId: string, vehicleData: any) => {
   return await vehicle.update({
     where: {
-      id: Number(vehicleId)
+      id: vehicleId
     },
     data: vehicleData
   }).catch((error) => {
