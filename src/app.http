@@ -18,7 +18,7 @@ content-type: application/json
 GET {{hostingURL}}user
 
 ### Recuperar usuario por id
-GET {{hostingURL}}user/1
+GET {{hostingURL}}user/64d72258793ccd1d6bc8401b
 
 ### Recuperar todos los vehiculos
 GET {{hostingURL}}vehicle

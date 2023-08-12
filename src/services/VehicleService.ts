@@ -18,7 +18,10 @@ const getVehicleByPlate = async (plate: string) => {
       Owner: {
         select: {
           id: true,
-          firstName: true
+          firstName: true,
+          lastName: true,
+          email: true,
+          phoneNumber: true
         }
       }
     }
