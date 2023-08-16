@@ -1,10 +1,10 @@
 import { VehicleInUseError } from '../errors/ErrorHandlers'
-import rentalService from '../services/RentalService'
+import { RentalService } from '../model'
 import { type Request, type Response } from 'express'
 
 export const getAllRentals = async (req: Request, res: Response) => {
   try {
-    const rentals = await rentalService.getAllRentals()
+    const rentals = await RentalService.getAllRentals()
     res.json(rentals)
   } catch (error) {
     console.error(error)
@@ -15,7 +15,7 @@ export const getAllRentals = async (req: Request, res: Response) => {
 export const getRentalsByUserId = async (req: Request, res: Response) => {
   const userId = req.params.userId
   try {
-    const rentals = await rentalService.getRentalsByUserId(userId)
+    const rentals = await RentalService.getRentalsByUserId(userId)
     res.json(rentals)
   } catch (error) {
     console.error(error)
@@ -26,7 +26,7 @@ export const getRentalsByUserId = async (req: Request, res: Response) => {
 export const getRentalsByVehicleId = async (req: Request, res: Response) => {
   const vehicleId = req.params.vehicleId
   try {
-    const rentals = await rentalService.getRentalsByVehicleId(vehicleId)
+    const rentals = await RentalService.getRentalsByVehicleId(vehicleId)
     res.json(rentals)
   } catch (error) {
     console.error(error)
@@ -37,7 +37,7 @@ export const getRentalsByVehicleId = async (req: Request, res: Response) => {
 export const rentVehicle = async (req: Request, res: Response) => {
   const data = req.body
   try {
-    const vehicleRented = await rentalService.rentVehicle(data)
+    const vehicleRented = await RentalService.rentVehicle(data)
     res.status(200).json(vehicleRented)
   } catch (error) {
     if (error instanceof VehicleInUseError) return res.status(400).json(error.message)

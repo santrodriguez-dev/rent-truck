@@ -53,7 +53,7 @@ const updateVehicle = async (vehicleId: string, vehicleData: any) => {
   })
 }
 
-export default {
+export const VehicleService = {
   getAllVehicles,
   getVehicleByPlate,
   createVehicle,

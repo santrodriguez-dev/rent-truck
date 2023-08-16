@@ -61,7 +61,7 @@ const rentVehicle = async (rentData: RentalI) => {
   })
 }
 
-export default {
+export const RentalService = {
   getAllRentals,
   getRentalsByUserId,
   rentVehicle,
